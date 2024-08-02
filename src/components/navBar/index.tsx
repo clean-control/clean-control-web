@@ -1,23 +1,26 @@
-import React from 'react';
+import React from "react";
 
+import "./style.css";
 
-function NavBar() {
+export default function NavBar() {
   return (
     <nav>
       <ul>
-        <li>
-          <a href="/">Home</a>
+        <li className="menu_logo">
+          <a href="/">Clean control</a>
         </li>
-        <li>
-          <a href="/about">About</a>
+        <li className="menu_itens">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
         </li>
-        <li>
-          <a href="/contact">Contact</a>
+
+        <li className="menu_links">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
         </li>
       </ul>
     </nav>
   );
 }
-
-
-export default NavBar;

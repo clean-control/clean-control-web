@@ -1,16 +1,14 @@
-// import { useState } from 'react'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/landingPage';
 
 
-
-function App() {
-
+export default function  App() {
   return (
-    <>
-      <LandingPage />
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
 
-export default App
+    </BrowserRouter>
+    )
+}
