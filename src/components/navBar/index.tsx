@@ -7,7 +7,7 @@ export default function NavBar() {
     <nav>
       <ul>
         <li className="menu_logo">
-          <a href="/">Clean control</a>
+          <a href="/">Clean Control</a>
         </li>
         <li className="menu_itens">
             <a href="/">Home</a>
@@ -17,8 +17,9 @@ export default function NavBar() {
         </li>
 
         <li className="menu_links">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a href="/login" className="btn_link">Login</a>
+            <a href="/register" className="btn_link alternativo">Register</a>
+
         </li>
       </ul>
     </nav>

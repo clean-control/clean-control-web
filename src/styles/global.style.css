@@ -11,8 +11,8 @@
 body {
   line-height: 1.5;
   font-family: Arial, sans-serif;
-  background-color: var(--color-gray-100);
-  color: var(--color-gray-800);
+  background-color: var(--color-gray-000);
+  color: var(--color-text);
 }
 
 img,
@@ -42,7 +42,7 @@ ol {
 :root {
 
   /*  System Colors */
-
+  --color-gray-000: #fff;
   --color-gray-100: #FAFAFA;
   --color-gray-200: #D6D6D6;
   --color-gray-300: #BEBEBE;
@@ -52,9 +52,37 @@ ol {
 
   --color-green-100: #96FFA0;
   --color-green-300: #62EE6F;
+  --color-green-500: #2DA739;
+  --color-green-700: #1D6F2B;
   --color-green-800: #295F2B;
 
+  --color-yellow-800: #F2B705;
+  --color-yellow-500: #F2CE1B;
+  --color-yellow-300: #F2BE5C;
+  --color-yellow-200: #F2C288;
+  --color-yellow-100: #F2E0C9;
+
+  --color-red-100: #FFA0A0;
+  --color-red-300: #EE6F6F;
+  --color-red-800: #5F2B2B;
+
+  --color-blue-100: #A0A0FF;
+  --color-blue-300: #6F6FEE;
+  --color-blue-800: #2B2B5F;
+
+  --color-purple-100: #FFA0FF;
+  --color-purple-300: #EE6FEE;
+  --color-purple-800: #5F2B5F;
+
+
   --color-link: #204DA4;
+  --color-link-hover: #2A75BC;
+
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-text-dark: #000;  
+  --color-text-white: #fff;
+
 
 
   /* Client Colors */
@@ -63,6 +91,12 @@ ol {
   --color-green-c-300: #62EE6F;
   --color-green-c-800: #295F2B;
 
+
+  /* Enterprise Colors */
+
+  --color-red-e-100: #FFA0A0;
+  --color-red-e-300: #EE6F6F;
+  --color-red-e-800: #5F2B2B;
 
 
   /* System Status Colors  */
