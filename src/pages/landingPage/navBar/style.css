@@ -1,0 +1,120 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  color: var(--color-gray-200);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.flutuante {
+  color: var(--color-gray-200);
+  margin-top: 10px;
+  padding: 0;
+  display: flex;
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.flutuante ul {
+  background-color: var(--color-blue-300-transparent);
+  border-radius: 15px;
+  width: 60%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flutuante .menu_links {
+  width: 20%;
+}
+
+.flutuante .menu_logo {
+  display: none;
+}
+
+.flutuante .menu_itens {
+  display: flex;
+  padding: 0 10px;
+  width: 70%;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+nav ul {
+  display: flex;
+  background-color: var(--color-blue-300);
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  justify-content: space-between;
+}
+
+li {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu_logo {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+
+.menu_itens {
+  display: flex;
+  padding: 0 10px;
+  width: 50%;
+}
+
+.menu_itens a:hover {
+  color: var(--color-gray-200);
+  border-color: var(--color-gray-200);
+  border-width: 0 0 2px;
+  border-style: solid;
+}
+
+.menu_links {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  width: 15%;
+}
+
+.menu_links .btn_link {
+  font-weight: 600;
+  background: var(--color-blue-500);
+  color: var(--color-gray-100);
+  padding: 0 5%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.show-nav-btn {
+  position: absolute;
+
+  top: 50px;
+  background-color: var(--color-blue-500);
+  color: var(--color-gray-100);
+  border: none;
+  padding: 0.1% 0.4%;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.show-nav-btn:hover {
+  background-color: var(--color-blue-300);
+}

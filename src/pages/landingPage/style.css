@@ -1,0 +1,127 @@
+.landing_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5vh;
+}
+.section_start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-white);
+  height: 90vh;
+  width: 90vw;
+  background-color: var(--color-blue-500);
+}
+
+.left_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2%;
+  width: 65%;
+  height: 100%;
+  font-size: 1.4rem;
+}
+
+.right_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+}
+
+.right_content img {
+  width: 88%;
+  position: relative;
+  z-index: 2;
+}
+
+.right_content::before {
+  content: "";
+  position: absolute;
+  width: 330px; /* Largura do círculo (ajuste conforme necessário) */
+  height: 330px; /* Altura do círculo (ajuste conforme necessário) */
+  background-color: var(--color-blue-800); /* Cor do círculo */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left_content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.botoes {
+    gap: 1rem; /* Espaço entre os botões */
+  }
+  
+  .botao {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+    height: 50px;
+    width: 180px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+  
+  .botao .text {
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .botao:hover {
+    width: 70%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #333, #555);
+  }
+  
+  .botao:hover .text {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .botao_user {
+    background: var(--color-blue-300);
+    color: var(--color-text-white);
+    border: 2px solid var(--color-text-white);
+  }
+  
+  .botao_user:hover {
+    color:  var(--color-green-c-50);
+    background: linear-gradient(135deg, var(--color-green-c-300), var(--color-green-c-400));
+    border-color: var(--color-green-c-50);
+  }
+  
+  .botao_enterprise {
+    background: var(--color-blue-300);
+    color: var(--color-text-white);
+    border: 2px solid var(--color-text-white);
+  }
+  
+  .botao_enterprise:hover {
+    color:  var(--color-yellow-e-100);
+    background: linear-gradient(135deg, var(--color-yellow-e-300), var(--color-yellow-e-400));
+    border-color: var(--color-yellow-e-100);
+  }
+  
+  .botao span {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
