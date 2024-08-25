@@ -110,6 +110,11 @@ ol {
 
   /* System Colors */
 
+  --color-blue-s-50: #b5b5f6;
+  --color-blue-s-100: #A0A0FF;
+  --color-blue-s-300: #6F6FEE;
+  --color-blue-s-500: #4141c2;
+  --color-blue-s-800: #2B2B5F;
 
   /* System Status Colors  */
 
@@ -130,9 +135,6 @@ ol {
 ::-webkit-scrollbar-thumb {
   background: var(--color-blue-500);  
   border-radius: 10px;  
-}
-
-::-webkit-scrollbar-thumb:hover {
 }
 
 

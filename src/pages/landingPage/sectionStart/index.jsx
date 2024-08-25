@@ -1,15 +1,9 @@
-// import { useState } from 'react'
-import React from "react";
-
-import NavBar from "./navBar";
+import imgCellPhone from "../../../assets/imgs/cellPhone_v1-removebg-preview.png";
 import "./style.css";
 
-import imgCellPhone from "../../assets/imgs/cellPhone_v1-removebg-preview.png";
-
-export default function LandingPage() {
+export default function SectionStart() {
   return (
     <>
-      <NavBar />
       <div className="landing_page">
         <section className="section_start">
           <div className="left_content">
@@ -27,24 +21,38 @@ export default function LandingPage() {
             <br />
 
             <div className="content_botoes">
-              <h4>Como voce deseja conhecer os servicos?</h4> 
+              <h4>Como voce deseja conhecer os servicos?</h4>
+
+
+              <div className="botao botao_default">
+                  <span>Conect Control</span>
+                  <span className="text">
+                   Tenha uma visão do funcionamento da simbiose na nossa plataforma.
+                  </span>
+                </div>
 
               <div className="botoes">
-
                 <div className="botao botao_user">
                   <span>Usuario</span>
-                    <span className="text">
-                     Tenha um visão exclusiva dos nossos serviços voltados expecificamente para você.
-                    </span>
+                  <span className="text">
+                    Tenha um visão exclusiva dos nossos serviços voltados
+                    expecificamente para você.
+                  </span>
                 </div>
 
-                <div className="botao botao_enterprise">
+
+                <div className="botao botao_enterprise" onClick={onclickBtnEnterprise}>
                   <span>Empresa</span>
                   <span className="text">
-                     Tenha um visão exclusiva dos nossos serviços e funcionalidades exclusivas  voltados expecificamente para sua empresa.
-                    </span>  
+                    Tenha um visão exclusiva dos nossos serviços e
+                    funcionalidades exclusivas voltados expecificamente para sua
+                    empresa.
+                  </span>
                 </div>
 
+               
+
+                
               </div>
             </div>
           </div>
@@ -56,4 +64,9 @@ export default function LandingPage() {
       </div>
     </>
   );
+}
+
+
+const onclickBtnEnterprise = () => {
+  console.log("Clicou no botao empresa");
 }
