@@ -3,6 +3,8 @@ import LandingPage from './pages/landingPage';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 export default function  App() {
+
+  
   return (
     <BrowserRouter>
       <Routes>

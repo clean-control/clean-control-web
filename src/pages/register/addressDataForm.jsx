@@ -1,0 +1,169 @@
+// import React, { useState } from "react";
+import { useState } from "react";
+
+export default function AddressDataForm({ formPerson, setFormPerson }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormPerson({ ...formPerson, [name]: value });
+  };
+
+  const options = [
+    { value: "", label: "Selecione uma opção" },
+    { value: "AC", label: "Acre" },
+    { value: "AL", label: "Alagoas" },
+    { value: "AP", label: "Amapá" },
+    { value: "AM", label: "Amazonas" },
+    { value: "BA", label: "Bahia" },
+    { value: "CE", label: "Ceará" },
+    { value: "DF", label: "Distrito Federal" },
+    { value: "ES", label: "Espírito Santo" },
+    { value: "GO", label: "Goiás" },
+    { value: "MA", label: "Maranhão" },
+    { value: "MT", label: "Mato Grosso" },
+    { value: "MS", label: "Mato Grosso do Sul" },
+    { value: "MG", label: "Minas Gerais" },
+    { value: "PA", label: "Pará" },
+    { value: "PB", label: "Paraíba" },
+    { value: "PR", label: "Paraná" },
+    { value: "PE", label: "Pernambuco" },
+    { value: "PI", label: "Piauí" },
+    { value: "RJ", label: "Rio de Janeiro" },
+    { value: "RN", label: "Rio Grande do Norte" },
+    { value: "RS", label: "Rio Grande do Sul" },
+    { value: "RO", label: "Rondônia" },
+    { value: "RR", label: "Roraima" },
+    { value: "SC", label: "Santa Catarina" },
+    { value: "SP", label: "São Paulo" },
+    { value: "SE", label: "Sergipe" },
+    { value: "TO", label: "Tocantins" },
+  ];
+
+  const [integrationCEP, setIntegrationCEP] = useState(false);
+
+  const handleCep = (e) => {
+    const cep = e.target.value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+      return;
+    }
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setIntegrationCEP(true);
+
+        setFormPerson({
+          ...formPerson,
+          street: data.logradouro,
+          state: data.uf,
+          city: data.localidade,
+          neighborhood: data.bairro,
+        });
+      });
+  };
+
+  if (!formPerson) {
+    return <div>Carregando...</div>; // Exibe uma mensagem de carregamento ou outro fallback
+  }
+  return (
+    <div className="content-forms">
+      <div className="group-form">
+        <div className="campo-form">
+          <label htmlFor="cep">CEP</label>
+          <input
+            type="text"
+            id="cep"
+            name="cep"
+            placeholder="Digite o seu CEP!"
+            value={formPerson.cep}
+            onChange={handleChange}
+            onBlur={handleCep}
+          />
+        </div>
+      </div>
+
+      <div className="campo-form">
+        <label htmlFor="street">street</label>
+        <input
+          type="text"
+          name="street"
+          id="street"
+          placeholder="Digite o seu street!"
+          value={formPerson.street}
+          onChange={handleChange}
+          disabled={integrationCEP}
+        />
+      </div>
+
+      <div className="group-form mini">
+        <div className="campo-form mini">
+          <label htmlFor="state">state</label>
+          <select
+            id="state"
+            name="state"
+            value={formPerson.state}
+            onChange={handleChange}
+            disabled={integrationCEP}
+          >
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="campo-form mini">
+          <label htmlFor="number">Número</label>
+          <input
+            type="number"
+            name="number"
+            id="number"
+            placeholder="Digite o seu número!"
+            value={formPerson.number}
+            disabled={false}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
+      <div className="campo-form">
+        <label htmlFor="city">city</label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          placeholder="Digite a sua city!"
+          value={formPerson.city}
+          onChange={handleChange}
+          disabled={integrationCEP}
+        />
+      </div>
+
+      <div className="campo-form">
+        <label htmlFor="neighborhood">neighborhood</label>
+        <input
+          type="text"
+          name="neighborhood"
+          id="neighborhood"
+          placeholder="Digite o seu neighborhood!"
+          value={formPerson.neighborhood}
+          disabled={integrationCEP}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="campo-form">
+        <label htmlFor="complement">complement</label>
+        <input
+          type="text"
+          name="complement"
+          id="complement"
+          placeholder="Digite o seu complement! (opcional)"
+          value={formPerson.complement}
+          onChange={handleChange}
+        />
+      </div>
+    </div>
+  );
+}

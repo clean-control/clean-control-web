@@ -9,8 +9,8 @@ export default function PersonalDataForm({ formPerson, setFormPerson }) {
       };
 
 
-  const [mostrarSenha, setMostrarSenha] = useState(false);
-  const [mostrarConfSenha, setMostrarConfSenha] = useState(false);
+  const [mostrarpassword, setMostrarpassword] = useState(false);
+  const [mostrarConfpassword, setMostrarConfpassword] = useState(false);
 
   const formatCpf = (value) => {
     return value
@@ -45,25 +45,25 @@ if (!formPerson) {
   return (
     <div className="content-forms">
       <div className="campo-form">
-        <label htmlFor="nome">Nome</label>
+        <label htmlFor="name">name</label>
         <input
           type="text"
-          id="nome"
-          name="nome"
-          placeholder="Digite o seu primeiro nome!"
-          value={formPerson.nome}
+          id="name"
+          name="name"
+          placeholder="Digite o seu primeiro name!"
+          value={formPerson.name}
           onChange={handleChange}
         />
       </div>
 
       <div className="campo-form">
-        <label htmlFor="sobrenome">Sobrenome</label>
+        <label htmlFor="lastname">lastname</label>
         <input
           type="text"
-          name="sobrenome"
-          id="sobrenome"
-          placeholder="Digite o seu sobrenome!"
-          value={formPerson.sobrenome}
+          name="lastname"
+          id="lastname"
+          placeholder="Digite o seu lastname!"
+          value={formPerson.lastname}
           onChange={handleChange}
         />
       </div>
@@ -82,43 +82,43 @@ if (!formPerson) {
 
       <div className="group-form mini">
         <div className="campo-form">
-          <label htmlFor="senha">Senha</label>
+          <label htmlFor="password">password</label>
           <div className="password-field">
             <input
-              type={mostrarSenha ? "text" : "password"}
-              name="senha"
-              id="senha"
-              placeholder="Digite a sua senha!"
-              value={formPerson.senha}
+              type={mostrarpassword ? "text" : "password"}
+              name="password"
+              id="password"
+              placeholder="Digite a sua password!"
+              value={formPerson.password}
               onChange={handleChange}
             />
             <button
               type="button"
-              onClick={() => setMostrarSenha(!mostrarSenha)}
+              onClick={() => setMostrarpassword(!mostrarpassword)}
               className="show-password-btn"
             >
-              <ion-icon name={mostrarSenha ? "eye" : "eye-off"}></ion-icon>
+              <ion-icon name={mostrarpassword ? "eye" : "eye-off"}></ion-icon>
             </button>
           </div>
         </div>
 
         <div className="campo-form">
-          <label htmlFor="confirmarSenha">Confirmar Senha</label>
+          <label htmlFor="confirmarpassword">Confirmar password</label>
           <div className="password-field">
             <input
-              type={mostrarConfSenha ? "text" : "password"}
-              name="confirmarSenha"
-              id="confirmarSenha"
-              placeholder="Digite novamente a sua senha!"
-              value={formPerson.confirmarSenha}
+              type={mostrarConfpassword ? "text" : "password"}
+              name="confirmarpassword"
+              id="confirmarpassword"
+              placeholder="Digite novamente a sua password!"
+              value={formPerson.confirmarpassword}
               onChange={handleChange}
             />
             <button
               type="button"
-              onClick={() => setMostrarConfSenha(!mostrarConfSenha)}
+              onClick={() => setMostrarConfpassword(!mostrarConfpassword)}
               className="show-password-btn"
             >
-              <ion-icon name={mostrarConfSenha ? "eye" : "eye-off"}></ion-icon>
+              <ion-icon name={mostrarConfpassword ? "eye" : "eye-off"}></ion-icon>
             </button>
           </div>
         </div>
@@ -126,8 +126,8 @@ if (!formPerson) {
 
       <div className="group-form">
         <div className="campo-form mini">
-          <label htmlFor="dataNasc">Data de Nascimento</label>
-          <input type="date" name="dataNasc" id="dataNasc" value={formPerson.dataNasc} onChange={handleChange} />
+          <label htmlFor="dateBirth">Data de Nascimento</label>
+          <input type="date" name="dateBirth" id="dateBirth" value={formPerson.dateBirth} onChange={handleChange} />
         </div>
 
         <div className="campo-form mini">
@@ -145,13 +145,13 @@ if (!formPerson) {
       </div>
 
       <div className="campo-form mini">
-        <label htmlFor="telefone">Telefone</label>
+        <label htmlFor="phone">phone</label>
         <input
           type="tel"
-          name="telefone"
-          id="telefone"
+          name="phone"
+          id="phone"
           placeholder="(XX) XXXXX-XXXX"
-          value={formPerson.telefone}
+          value={formPerson.phone}
           onChange={handleChange}
         />
       </div>
