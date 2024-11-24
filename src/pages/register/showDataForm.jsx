@@ -75,25 +75,25 @@ export default function ShowDataForm({ formPerson, setFormPerson }) {
         </div>
         <div className={"itens"+(showAddressData ? " close" : "")}>
           <div className="item">
-            <strong>CEP:</strong> {formatCep(formPerson.cep)}
+            <strong>CEP:</strong> {formatCep(formPerson.address.cep)}
           </div>
           <div className="item">
-            <strong>street:</strong> {formPerson.street}
+            <strong>street:</strong> {formPerson.address.street}
           </div>
           <div className="item">
-            <strong>state:</strong> {formPerson.state}
+            <strong>state:</strong> {formPerson.address.state}
           </div>
           <div className="item">
-            <strong>city:</strong> {formPerson.city}
+            <strong>city:</strong> {formPerson.address.city}
           </div>
           <div className="item">
-            <strong>Número:</strong> {formPerson.number}
+            <strong>Número:</strong> {formPerson.address.number}
           </div>
           <div className="item">
-            <strong>neighborhood:</strong> {formPerson.neighborhood}
+            <strong>neighborhood:</strong> {formPerson.address.neighborhood}
           </div>
           <div className="item">
-            <strong>complement:</strong> {formPerson.complement}
+            <strong>complement:</strong> {formPerson.address.complement}
           </div>
         </div>
       </div>

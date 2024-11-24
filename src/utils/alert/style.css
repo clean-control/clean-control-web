@@ -1,0 +1,86 @@
+.alert-container{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 20%;
+
+}
+.alert {
+    
+    min-width: 100%;
+    padding: 1rem;
+    /* border-radius: 0.5rem; */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: 0.6s;
+    /* animaçao para aparecer na tela */
+    animation: slideIn 0.3s forwards ;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+
+}
+
+
+
+
+.alert-success {
+    background: var(--color-status-success);
+    color: var(--color-text-white);
+}
+
+.alert-warning {
+    background: var(--color-status-warning);
+    color: var(--color-text-white);
+}
+
+.alert-error {
+    color: var(--color-status-error);
+    background: var(--color-text-white);
+    border-bottom: solid 3px var(--color-status-error);
+}
+
+.alert-info {
+    background: var(--color-status-info);
+    color: var(--color-text-white);
+}
+
+.alert ion-icon {
+    font-size: 1.5rem;
+
+
+    animation: rotate 1s;
+
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

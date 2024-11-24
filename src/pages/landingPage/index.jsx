@@ -1,17 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 
 import React from "react";
+// import Alert from '../../utils/alert/alert';
 
 
 export default function LandingPage() {
 
   const navegate = useNavigate();
 
+
   const redirectLoin = () => {
     navegate('/auth/login');
   }
   const redirectRegister = () => {
-    navegate('/auth/register');
+navegate('/auth/register'); // descomentar para testar a tela de cadastro
+ 
   }
 
 
@@ -19,10 +22,11 @@ export default function LandingPage() {
     <>
      eu sou a landing page
      <br />
-
      <button onClick={redirectLoin}>tela de login</button><br />
      <button onClick={redirectRegister}>tela de cadastro</button>
 
+
+ 
 
      
     
