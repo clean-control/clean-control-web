@@ -48,24 +48,43 @@
 
 
 .alert-success {
-    background: var(--color-status-success);
-    color: var(--color-text-white);
+
+    color: var(--color-status-success);
+    background: var(--color-text-white);
+    border-bottom: solid 3px var(--color-status-success);
+
+    /* background: var(--color-status-success);
+    color: var(--color-text-white); */
 }
 
 .alert-warning {
-    background: var(--color-status-warning);
-    color: var(--color-text-white);
+
+
+    color: var(--color-status-warning);
+    background: var(--color-text-white);
+    border-bottom: solid 3px var(--color-status-warning);
+
+    /* background: var(--color-status-warning);
+    color: var(--color-text-white); */
 }
 
 .alert-error {
     color: var(--color-status-error);
     background: var(--color-text-white);
     border-bottom: solid 3px var(--color-status-error);
+
+    /* background: var(--color-status-error);
+    color: var(--color-text-white); */
 }
 
 .alert-info {
-    background: var(--color-status-info);
-    color: var(--color-text-white);
+
+    color: var(--color-status-info);
+    background: var(--color-text-white);
+    border-bottom: solid 3px var(--color-status-info);
+
+    /* background: var(--color-status-info);
+    color: var(--color-text-white); */
 }
 
 .alert ion-icon {

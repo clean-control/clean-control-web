@@ -27,6 +27,20 @@ export default function PersonalDataForm({ formPerson, setFormPerson }) {
 
   };
 
+  const formatPhone = (value) => {
+    return value
+      .replace(/\D/g, "") // Remove caracteres não numéricos
+      .replace(/(\d{2})(\d)/, "($1) $2") // Adiciona parênteses no DDD
+      .replace(/(\d{5})(\d)/, "$1-$2") // Adiciona o hífen no número
+      .replace(/(-\d{4})\d+?$/, "$1"); // Limita o número de dígitos após o hífen
+  };
+  
+  const handleChangePhone = (e) => {
+    const { name, value } = e.target;
+    setFormPerson({ ...formPerson, [name]: formatPhone(value) });
+  };
+  
+
   
 
 //   const validateCpf = (value) => {
@@ -152,7 +166,7 @@ if (!formPerson) {
           id="phone"
           placeholder="(XX) XXXXX-XXXX"
           value={formPerson.phone}
-          onChange={handleChange}
+          onChange={handleChangePhone}
         />
       </div>
     </div>

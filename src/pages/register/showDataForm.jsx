@@ -17,6 +17,13 @@ export default function ShowDataForm({ formPerson, setFormPerson }) {
       .replace(/(\d{3})(\d{2})$/, "$1-$2");
   };
 
+  const formatPhone = (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{4})(\d)/, "$1-$2");
+  }
+
   const formatCep = (value) => {
     return value.replace(/\D/g, "").replace(/(\d{5})(\d)/, "$1-$2");
   };
@@ -56,7 +63,7 @@ export default function ShowDataForm({ formPerson, setFormPerson }) {
             <strong>Data de Nascimento:</strong> {formPerson.dateBirth}
           </div>
           <div className="item">
-            <strong>phone:</strong> {formPerson.phone}
+            <strong>phone:</strong> {formatPhone(formPerson.phone)}
           </div>
         </div>
       </div>

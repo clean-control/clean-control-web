@@ -1,10 +1,21 @@
 // import React, { useState } from "react";
 import { useState } from "react";
+import { formatCep } from "../../utils/format";
+import BaseLoader from "../../utils/loader/loader";
+import Alert from "../../utils/alert/alert";
 
 export default function AddressDataForm({ formPerson, setFormPerson }) {
+
+const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormPerson({ ...formPerson, [name]: value });
+  };
+
+
+  const setCep = (e) => {
+    setFormPerson({ ...formPerson, cep: formatCep(e.target.value) });
   };
 
   const options = [
@@ -47,11 +58,14 @@ export default function AddressDataForm({ formPerson, setFormPerson }) {
       return;
     }
 
+    setIsLoading(true);
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((response) => response.json())
       .then((data) => {
         setIntegrationCEP(true);
+        window.addAlert("CEP encontrado com sucesso!", "success", 5000);
 
+        setIsLoading(false);
         setFormPerson({
           ...formPerson,
           street: data.logradouro,
@@ -59,7 +73,12 @@ export default function AddressDataForm({ formPerson, setFormPerson }) {
           city: data.localidade,
           neighborhood: data.bairro,
         });
-      });
+      }).catch((error) => {
+        setIsLoading(false);
+        console.error("Erro ao buscar CEP:", error);
+        window.addAlert("Erro ao buscar CEP. Tente novamente.", "error", 5000);
+      }
+      );
   };
 
   if (!formPerson) {
@@ -76,8 +95,9 @@ export default function AddressDataForm({ formPerson, setFormPerson }) {
             name="cep"
             placeholder="Digite o seu CEP!"
             value={formPerson.cep}
-            onChange={handleChange}
+            onChange={setCep}
             onBlur={handleCep}
+            maxLength={9}
           />
         </div>
       </div>
@@ -164,6 +184,9 @@ export default function AddressDataForm({ formPerson, setFormPerson }) {
           onChange={handleChange}
         />
       </div>
+      <Alert />
+
+      {isLoading && <BaseLoader />}
     </div>
   );
 }
