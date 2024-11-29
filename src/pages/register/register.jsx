@@ -50,7 +50,7 @@ export default function Register() {
     },
   });
 
-  // Função para cadastrar o usuário
+  // * Função para cadastrar o usuário
   const cadastrar = () => {
     console.log("Dados enviados para o servidor:", JSON.stringify(formPerson));
     setIsLoading(true);
@@ -60,8 +60,12 @@ export default function Register() {
         setIsLoading(false);
         console.log("Cadastro realizado com sucesso:", response);
         window.addAlert("Cadastro realizado com sucesso!", "success", 5000);
+
+        // * Salvar o retorno da API no sessionStorage
+        sessionStorage.setItem("userData", JSON.stringify(response.data));
+
         setTimeout(() => {
-          navigate("/auth/login");
+          navigate("/ecommerce");
         }, 1000);
       })
       .catch((error) => {
