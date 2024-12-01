@@ -1,0 +1,64 @@
+.session {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  width: 95%;
+}
+
+.session h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.content{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.session .content-ecomm{
+position: relative;
+    display: flex;
+
+    justify-content: start;
+    align-items: start;
+    overflow-x: auto;
+    gap: 1em;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+
+.content-ecomm > .item {
+}
+
+.arrow{
+
+    position: absolute;
+    background-color: var(--color-green-100);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.arrow.left{
+    left: 0;
+    z-index: 20;
+    transform: rotateX(180deg);
+}
+
+
+.arrow.right{
+
+    right: -1%;
+    z-index: 20;
+}
