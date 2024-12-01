@@ -10,14 +10,15 @@ export default function Ecommerce() {
     const userData = JSON.parse(sessionStorage.getItem('userData'));
 
     // const [isLoading, setIsLoading] = useState(false);
-    console.log(userData);
+    console.log(userData ?? 'Sem dados');
 
     return(
 
         <>
-           <Menu  data={userData} />
+           <Menu  data={userData??null} />
            <div className="content-principal">
 
+                <h1>Olá, {userData?.name ?? 'sem nome'}</h1>
 aiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
            </div>
 

@@ -4,34 +4,40 @@ import "./style.css";
 
 export default function Menu({ data }) {
   const validRegister = () => {
-    return data.id != null && data.token != null;
+    return data?.id != null && data?.token != null;
   };
   return (
     <nav className="menu">
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="/">Clean Control</a>
         </li>
         <li>
-          <a href="/">Serviços</a>
+          <a href="/" className="menu-item">Home</a>
+        </li>
+        <li>
+          <a href="/" className="menu-item">Serviços</a>
         </li>
         <li className="search-box">
           <div className="search">
-            <ion-icon name="search-outline"></ion-icon>
-            <input type="text" placeholder="Pesquisar" />
+            <label htmlFor="busca"><ion-icon name="search-outline" ></ion-icon></label>
+            <input type="text" placeholder="Pesquisar"  name="busca" id="busca"/>
           </div>
         </li>
         <li>
-          <a href="/">Explorar</a>
+          <a href="/" className="menu-item">Explorar</a>
         </li>
         <li>
-          <a href="/">newsletter</a>
+          <a href="/" className="menu-item">newsletter</a>
         </li>
         <li className="user-info">
           {validRegister() ? (
             <div className="profile-info">
               <div className="notification">
+                {/* 
+                ^retirar o span e o comentario para adicionar notificações quando for desenvolvido^
                 <span className="cont-notification">+9</span>
+                 */}
                 <ion-icon name="notifications-sharp"></ion-icon>
               </div>
 
