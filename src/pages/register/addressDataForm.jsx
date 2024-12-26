@@ -1,18 +1,16 @@
-// import React, { useState } from "react";
 import { useState } from "react";
 import { formatCep } from "../../utils/format";
 import BaseLoader from "../../utils/loader/loader";
 import Alert from "../../utils/alert/alert";
+import style from "./Register.module.css"; // Importando o CSS Module
 
 export default function AddressDataForm({ formPerson, setFormPerson }) {
-
-const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormPerson({ ...formPerson, [name]: value });
   };
-
 
   const setCep = (e) => {
     setFormPerson({ ...formPerson, cep: formatCep(e.target.value) });
@@ -73,21 +71,21 @@ const [isLoading, setIsLoading] = useState(false);
           city: data.localidade,
           neighborhood: data.bairro,
         });
-      }).catch((error) => {
+      })
+      .catch((error) => {
         setIsLoading(false);
         console.error("Erro ao buscar CEP:", error);
         window.addAlert("Erro ao buscar CEP. Tente novamente.", "error", 5000);
-      }
-      );
+      });
   };
 
   if (!formPerson) {
     return <div>Carregando...</div>; // Exibe uma mensagem de carregamento ou outro fallback
   }
   return (
-    <div className="content-forms">
-      <div className="group-form">
-        <div className="campo-form">
+    <div className={style.contentForms}>
+      <div className={style.groupForm}>
+        <div className={style.campoForm}>
           <label htmlFor="cep">CEP</label>
           <input
             type="text"
@@ -102,22 +100,22 @@ const [isLoading, setIsLoading] = useState(false);
         </div>
       </div>
 
-      <div className="campo-form">
-        <label htmlFor="street">street</label>
+      <div className={style.campoForm}>
+        <label htmlFor="street">Rua</label>
         <input
           type="text"
           name="street"
           id="street"
-          placeholder="Digite o seu street!"
+          placeholder="Digite o seu endereço!"
           value={formPerson.street}
           onChange={handleChange}
           disabled={integrationCEP}
         />
       </div>
 
-      <div className="group-form mini">
-        <div className="campo-form mini">
-          <label htmlFor="state">state</label>
+      <div className={`${style.groupForm} ${style.mini}`}>
+        <div className={`${style.campoForm} ${style.mini}`}>
+          <label htmlFor="state">Estado</label>
           <select
             id="state"
             name="state"
@@ -133,7 +131,7 @@ const [isLoading, setIsLoading] = useState(false);
           </select>
         </div>
 
-        <div className="campo-form mini">
+        <div className={`${style.campoForm} ${style.mini}`}>
           <label htmlFor="number">Número</label>
           <input
             type="number"
@@ -147,46 +145,47 @@ const [isLoading, setIsLoading] = useState(false);
         </div>
       </div>
 
-      <div className="campo-form">
-        <label htmlFor="city">city</label>
+      <div className={style.campoForm}>
+        <label htmlFor="city">Cidade</label>
         <input
           type="text"
           name="city"
           id="city"
-          placeholder="Digite a sua city!"
+          placeholder="Digite a sua cidade!"
           value={formPerson.city}
           onChange={handleChange}
           disabled={integrationCEP}
         />
       </div>
 
-      <div className="campo-form">
-        <label htmlFor="neighborhood">neighborhood</label>
+      <div className={style.campoForm}>
+        <label htmlFor="neighborhood">Bairro</label>
         <input
           type="text"
           name="neighborhood"
           id="neighborhood"
-          placeholder="Digite o seu neighborhood!"
+          placeholder="Digite o seu bairro!"
           value={formPerson.neighborhood}
           disabled={integrationCEP}
           onChange={handleChange}
         />
       </div>
 
-      <div className="campo-form">
-        <label htmlFor="complement">complement</label>
+      <div className={style.campoForm}>
+        <label htmlFor="complement">Complemento</label>
         <input
           type="text"
           name="complement"
           id="complement"
-          placeholder="Digite o seu complement! (opcional)"
+          placeholder="Digite o seu complemento! (opcional)"
           value={formPerson.complement}
           onChange={handleChange}
         />
       </div>
-      <Alert />
 
+      <Alert />
       {isLoading && <BaseLoader />}
+
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import celular from "../../assets/imgs/Device--inject-1.svg";
 import usuario from "../../assets/imgs/bro.svg";
-import "./style.css";
+import style from "./Register.module.css";
 import PersonalDataForm from "./personalDataForm";
 import AddressDataForm from "./addressDataForm";
 import ShowDataForm from "./showDataForm";
@@ -84,6 +84,8 @@ export default function Register() {
   };
 
   const nextStage = () => {
+    console.log(stage);
+    
     if (validate()) {
       if (stage === 3) {
         cadastrar();
@@ -195,23 +197,23 @@ export default function Register() {
   };
 
   return (
-    <div className="box-geral">
-      <div className="box-header">
-        <div className="redirect" onClick={() => navigate("/")}>
+    <div className={style.boxGeral}>
+      <div className={style.boxHeader}>
+        <div className={style.redirect} onClick={() => navigate("/")}>
           <ion-icon name="arrow-back-outline"></ion-icon> Return
         </div>
-        <div className="redirect login" onClick={() => navigate("/auth/login")}>
+        <div className={`${style.redirect} ${style.login}`} onClick={() => navigate("/auth/login")}>
           Login <ion-icon name="log-in-outline"></ion-icon>
         </div>
       </div>
 
-      <div className="box">
-        <div className="header">
+      <div className={style.box}>
+        <div className={style.header}>
           {stage === 1 && <h1>Personal Data</h1>}
           {stage === 2 && <h1>Address Data</h1>}
           {stage === 3 && <h1>Finish</h1>}
         </div>
-        <div className="content">
+        <div className={style.content}>
           {/* Etapas do formulário */}
           {stage === 1 && (
             <PersonalDataForm
@@ -232,47 +234,46 @@ export default function Register() {
             />
           )}
 
-          <div className="content-img">
+          <div className={style.contentImg}>
             <img src={celular} alt="Celular" />
             <img src={usuario} alt="Usuário" />
           </div>
         </div>
 
-        <div className="bottom">
+        <div className={style.bottom}>
           <button
-            className={`btn back ${stage > 1 ? "active" : "disabled"}`}
+            className={`${style.btn} ${style.back} ${stage > 1 ? style.active : style.disabled}`}
             onClick={backStage}
           >
             <ion-icon name="arrow-back-outline"></ion-icon>
             Voltar
           </button>
-          <div className="progress-bar">
-            <div className={`stage ${stage === 1 ? "atual" : "finish"}`}>
+          <div className={style.progressBar}>
+            <div className={`${style.stage} ${stage === 1 ? style.atual : style.finish}`}>
               {stage === 1 ? "1" : check}
             </div>
             <div
-              className={`stage ${
-                stage === 2 ? "atual" : stage >= 2 ? "finish" : ""
-              }`}
+              className={`${style.stage} ${stage === 2 ? style.atual : stage >= 2 ? style.finish : ""}`}
             >
-              {stage < 2 ? "2" : check}
+              {stage <= 2 ? "2" : check}
             </div>
             <div
-              className={`stage ${
-                stage === 3 ? "atual" : stage >= 3 ? "finish" : ""
+              className={`${style.stage} ${
+                stage === 3 ? style.atual : stage >= 3 ? style.finish : ""
               }`}
             >
               <ion-icon name="flag"></ion-icon>
             </div>
           </div>
           <button
-            className="btn next active"
+            className={`${style.btn} ${style.next} ${style.active}`}
             onClick={nextStage}
             disabled={stage > 3}
           >
             Continuar
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </button>
+         
         </div>
       </div>
       <Alert />

@@ -1,13 +1,11 @@
 import { useState } from "react";
-
+import style from "./Register.module.css"; // Importando o CSS Module
 
 export default function PersonalDataForm({ formPerson, setFormPerson }) {
- 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormPerson({ ...formPerson, [name]: value });
-      };
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormPerson({ ...formPerson, [name]: value });
+  };
 
   const [mostrarpassword, setMostrarpassword] = useState(false);
   const [mostrarConfpassword, setMostrarConfpassword] = useState(false);
@@ -22,9 +20,7 @@ export default function PersonalDataForm({ formPerson, setFormPerson }) {
 
   const handleChangeCpf = (e) => {
     const { name, value } = e.target;
-
     setFormPerson({ ...formPerson, [name]: formatCpf(value) });
-
   };
 
   const formatPhone = (value) => {
@@ -34,55 +30,42 @@ export default function PersonalDataForm({ formPerson, setFormPerson }) {
       .replace(/(\d{5})(\d)/, "$1-$2") // Adiciona o hífen no número
       .replace(/(-\d{4})\d+?$/, "$1"); // Limita o número de dígitos após o hífen
   };
-  
+
   const handleChangePhone = (e) => {
     const { name, value } = e.target;
     setFormPerson({ ...formPerson, [name]: formatPhone(value) });
   };
-  
 
-  
-
-//   const validateCpf = (value) => {
-//     const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-//     return cpfRegex.test(value);
-//   };
-
-//   const validPassword = (password, confPassword) => {
-//     if(password.length() < 8 || confPassword.length() < 8) return false;
-//     return password == confPassword;
-//   };
-
-if (!formPerson) {
+  if (!formPerson) {
     return <div>Carregando...</div>; // Exibe uma mensagem de carregamento ou outro fallback
   }
   return (
-    <div className="content-forms">
-      <div className="campo-form">
-        <label htmlFor="name">name</label>
+    <div className={style.contentForms}>
+      <div className={style.campoForm}>
+        <label htmlFor="name">Nome</label>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Digite o seu primeiro name!"
+          placeholder="Digite o seu primeiro nome!"
           value={formPerson.name}
           onChange={handleChange}
         />
       </div>
 
-      <div className="campo-form">
-        <label htmlFor="lastname">lastname</label>
+      <div className={style.campoForm}>
+        <label htmlFor="lastname">Sobrenome</label>
         <input
           type="text"
           name="lastname"
           id="lastname"
-          placeholder="Digite o seu lastname!"
+          placeholder="Digite o seu sobrenome!"
           value={formPerson.lastname}
           onChange={handleChange}
         />
       </div>
 
-      <div className="campo-form">
+      <div className={style.campoForm}>
         <label htmlFor="email">E-mail</label>
         <input
           type="email"
@@ -94,43 +77,43 @@ if (!formPerson) {
         />
       </div>
 
-      <div className="group-form mini">
-        <div className="campo-form">
-          <label htmlFor="password">password</label>
-          <div className="password-field">
+      <div className={`${style.groupForm} ${style.mini}`}>
+        <div className={style.campoForm}>
+          <label htmlFor="password">Senha</label>
+          <div className={style.passwordField}>
             <input
               type={mostrarpassword ? "text" : "password"}
               name="password"
               id="password"
-              placeholder="Digite a sua password!"
+              placeholder="Digite a sua senha!"
               value={formPerson.password}
               onChange={handleChange}
             />
             <button
               type="button"
               onClick={() => setMostrarpassword(!mostrarpassword)}
-              className="show-password-btn"
+              className={style.showPasswordBtn}
             >
               <ion-icon name={mostrarpassword ? "eye" : "eye-off"}></ion-icon>
             </button>
           </div>
         </div>
 
-        <div className="campo-form">
-          <label htmlFor="confirmarpassword">Confirmar password</label>
-          <div className="password-field">
+        <div className={style.campoForm}>
+          <label htmlFor="confirmarpassword">Confirmar Senha</label>
+          <div className={style.passwordField}>
             <input
               type={mostrarConfpassword ? "text" : "password"}
               name="confirmarpassword"
               id="confirmarpassword"
-              placeholder="Digite novamente a sua password!"
+              placeholder="Digite novamente a sua senha!"
               value={formPerson.confirmarpassword}
               onChange={handleChange}
             />
             <button
               type="button"
               onClick={() => setMostrarConfpassword(!mostrarConfpassword)}
-              className="show-password-btn"
+              className={style.showPasswordBtn}
             >
               <ion-icon name={mostrarConfpassword ? "eye" : "eye-off"}></ion-icon>
             </button>
@@ -138,13 +121,13 @@ if (!formPerson) {
         </div>
       </div>
 
-      <div className="group-form">
-        <div className="campo-form mini">
+      <div className={style.groupForm}>
+        <div className={`${style.campoForm} ${style.mini}`}>
           <label htmlFor="dateBirth">Data de Nascimento</label>
           <input type="date" name="dateBirth" id="dateBirth" value={formPerson.dateBirth} onChange={handleChange} />
         </div>
 
-        <div className="campo-form mini">
+        <div className={`${style.campoForm} ${style.mini}`}>
           <label htmlFor="cpf">CPF</label>
           <input
             type="text"
@@ -158,8 +141,8 @@ if (!formPerson) {
         </div>
       </div>
 
-      <div className="campo-form mini">
-        <label htmlFor="phone">phone</label>
+      <div className={`${style.campoForm} ${style.mini}`}>
+        <label htmlFor="phone">Telefone</label>
         <input
           type="tel"
           name="phone"

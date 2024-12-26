@@ -1,0 +1,9 @@
+
+.box-geral {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #066339;
+    background: linear-gradient(340deg, #506306 0%, #8f820e 46%, #ff9341 100%);
+  }
