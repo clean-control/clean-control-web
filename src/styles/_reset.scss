@@ -1,0 +1,47 @@
+// _reset.scss
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-gray-100);
+    overflow-x: hidden;
+    color: var(--color-text);
+  }
+  
+  img,
+  picture,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul,
+  ol {
+    list-style: none;
+  }

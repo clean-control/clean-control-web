@@ -2,7 +2,7 @@ import { useState } from "react";
 import { formatCep } from "../../utils/format";
 import BaseLoader from "../../utils/loader/loader";
 import Alert from "../../utils/alert/alert";
-import style from "./Register.module.css"; // Importando o CSS Module
+import style from "./Register.module.scss"; // Importando o CSS Module
 
 export default function AddressDataForm({ formPerson, setFormPerson }) {
   const [isLoading, setIsLoading] = useState(false);

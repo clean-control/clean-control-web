@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.css";
+import "./style.scss";
 
 export default function EcommItem({ data }) {
   const { id, title, image } = data;

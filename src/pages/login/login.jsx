@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "../../utils/alert/alert";
-import './style.css';
+import './style.scss';
 import BaseLoader from "../../utils/loader/loader";
 import celular from "../../assets/imgs/Device--inject-1.svg";
 import usuario from "../../assets/imgs/bro.svg";

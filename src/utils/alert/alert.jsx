@@ -1,12 +1,12 @@
-import React, { useState, useCallback } from "react";
-import "./style.css";
+import React, { useState, useCallback, useEffect } from "react";
+import "./style.scss";
 
 export default function Alert() {
   const [alerts, setAlerts] = useState([]);
 
   const addAlert = useCallback((message, type = "info", duration = 3000) => {
-    const id = Date.now();  
-    const newAlert = { id, message, type };  
+    const id = Date.now();
+    const newAlert = { id, message, type };
 
     setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
 
@@ -15,7 +15,7 @@ export default function Alert() {
     }, duration);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addAlert = addAlert;
   }, [addAlert]);
 
@@ -37,7 +37,10 @@ export default function Alert() {
   return (
     <div className="alert-container">
       {alerts.map((alert) => (
-        <div key={alert.id} className={`alert alert-${alert.type}`}>
+        <div
+          key={alert.id}
+          className={`alert alert-${alert.type} alert-animate`}
+        >
           <ion-icon name={defineType(alert.type)}></ion-icon>
           <span>{alert.message}</span>
         </div>

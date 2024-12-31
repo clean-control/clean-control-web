@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import EcommItem from "../ecomm-item/ecommItem";
-import './style.css';
+import './style.scss';
 
 export default function Session({ title, data }) {
     const contentRef = useRef(null);  

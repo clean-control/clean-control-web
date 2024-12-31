@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import celular from "../../assets/imgs/Device--inject-1.svg";
 import usuario from "../../assets/imgs/bro.svg";
-import style from "./Register.module.css";
+import style from "./Register.module.scss";
 import PersonalDataForm from "./personalDataForm";
 import AddressDataForm from "./addressDataForm";
 import ShowDataForm from "./showDataForm";
@@ -277,7 +277,6 @@ export default function Register() {
         </div>
       </div>
       <Alert />
-
       {isLoading && <BaseLoader />}
     </div>
   );

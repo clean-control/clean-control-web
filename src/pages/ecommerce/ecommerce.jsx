@@ -2,7 +2,7 @@
 import { Navigate } from "react-router-dom";
 import Menu from "../../components/menu/menu";
 import Session from "../../components/session/session";
-import './style.css';
+import './style.scss';
 export default function Ecommerce() {
 
     if (sessionStorage.getItem('userData') === null) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./Register.module.css"; // Importando o CSS Module
+import style from "./Register.module.scss"; // Importando o CSS Module
 
 export default function ShowDataForm({ formPerson, setFormPerson }) {
   const handleChange = (e) => {
